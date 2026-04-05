@@ -43,7 +43,7 @@ function ProductDetails() {
           <h1 className="product-title">{product.title}</h1>
           <p className="product-price">${product.price}</p>
           
-          {/* الوصف بمقاسات الفيجما */}
+
           <div className="product-description">
             <p>Relaxed fit.</p>
             <p>Crew neck.</p>

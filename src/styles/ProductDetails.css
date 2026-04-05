@@ -1,9 +1,9 @@
-/* استخدام فونت Outfit */
+
 .page-wrapper {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
-  font-family: 'Outfit', sans-serif; /* الفونت المطلوب */
+  font-family: 'Outfit', sans-serif; 
   -webkit-font-smoothing: antialiased;
 }
 
@@ -35,10 +35,10 @@
 .product-title { font-size: 40px; font-weight: 600; margin-bottom: 12px; color: #000; }
 .product-price { font-size: 28px; font-weight: 600; margin-bottom: 30px; }
 
-/* ضبط الـ Paragraph زي الفيجما */
+
 .product-description {
   font-size: 16px;
-  line-height: 1.8; /* المسافة بين السطور */
+  line-height: 1.8; 
   color: #000;
   margin-bottom: 35px;
   font-weight: 400;
@@ -52,8 +52,8 @@
 .size-buttons button {
   width: 48px;
   height: 48px;
-  border: none; /* شيلنا الـ Border خالص */
-  background: #F3F3F3; /* لون خلفية خفيف */
+  border: none; 
+  background: #F3F3F3; 
   cursor: pointer;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
@@ -61,9 +61,9 @@
   transition: all 0.2s ease;
 }
 
-/* الحالة لما نضغط على المقاس */
+
 .size-buttons button.active {
-  background-color: #E0E0E0; /* رمادي زي ما طلبتي */
+  background-color: #E0E0E0; 
   color: #000;
   font-weight: 700;
 }
@@ -71,7 +71,7 @@
 .bottom-actions { display: flex; flex-direction: column; align-items: center; gap: 15px; }
 
 .add-btn {
-  background: #fff; /* لون أحمر قريب للفيجما */
+  background: #fff; 
   color: #E52E2E;
   border: none;
   padding: 16px 0;
@@ -86,7 +86,7 @@
 
 .success-msg { color: #000; font-weight: 600; font-size: 14px; }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .product-container { flex-direction: column; align-items: center; text-align: center; gap: 40px; }
   .product-title { font-size: 32px; }
