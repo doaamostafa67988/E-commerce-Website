@@ -1,0 +1,611 @@
+* {
+  font-family: 'Outfit', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none !important;
+}
+
+body {
+  background-color: #F8F8F8;
+  min-height: 100vh;
+}
+
+
+.main-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand-text {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #F8B326;
+}
+
+.color { color: #F61B5A; }
+
+
+.products-grid {
+  column-count: 4;
+  column-gap: 30px;
+  padding: 40px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 35px;
+  color: inherit;
+  position: relative;
+}
+
+.product-image-wrapper {
+  background-color: #F0F0F0;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+
+.product-card:nth-child(6n+1) .product-image-wrapper,
+.product-card:nth-child(6n+2) .product-image-wrapper { aspect-ratio: 2 / 3.2; }
+.product-card:nth-child(6n+3) .product-image-wrapper,
+.product-card:nth-child(6n+4) .product-image-wrapper { aspect-ratio: 1 / 1; }
+.product-card:nth-child(6n+5) .product-image-wrapper { aspect-ratio: 2 / 2.8; }
+.product-card:nth-child(6n+6) .product-image-wrapper { aspect-ratio: 1.5 / 1; }
+
+
+.wishlist-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 20;
+  background: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.1);
+}
+
+.wishlist-icon svg {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+
+.product-info {
+  padding: 15px 0;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.product-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.current-price {
+  font-weight: 700;
+  color: #000;
+}
+
+.old-price {
+  font-size: 1.1rem;
+  color: #d1d1d1;
+  text-decoration: line-through !important;
+}
+
+.sale-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #000;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+
+@media (max-width: 1000px) {
+  .products-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .products-grid { column-count: 1; }
+}
+
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  grid-auto-rows: 200px; /* زودنا الارتفاع عشان الصور تبان */
+  gap: 15px;
+  padding: 20px;
+  grid-auto-flow: dense;
+}
+
+/* الصور الطويلة (0, 1, 4) */
+.product-card.hero-tall {
+  grid-row: span 3; /* طول كبير وواضح */
+}
+
+/* الصور القصيرة اللي جنبهم (2, 3) */
+.product-card.hero-short-stacked {
+  grid-row: span 1.5; /* مجموع الاتنين = 3، يعني نفس طول اللي جنبهم بالظبط */
+}
+
+/* باقي الصور في الصفوف اللي تحت */
+.product-card.regular-short {
+  grid-row: span 2; /* خليناها أطول شوية من اللي فوق عشان المنتج يبان */
+  grid-auto-rows: 300px
+  
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.image-wrapper {
+  position: relative;
+  flex-grow: 1;
+  background: #f9f9f9;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* بيخلي الصورة تملى المساحة المحددة بشياكة */
+}
+
+/* تصغير الخطوط جداً للمظهر الـ Minimal */
+.product-info {
+  padding: 8px 6px;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  color: #1a1a1a;
+  max-width: 65%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.desc {
+  font-size: 0.6rem;
+  color: #888;
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* شكل القلب */
+.heart-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.heart-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: #333;
+  fill: none;
+}
+
+.heart-btn.active svg {
+  fill: #ff4d4d;
+  stroke: #ff4d4d;
+}
+
+
+
+/* الخلفية الرمادية للموقع كله */
+.login-wrapper.grey-bg {
+  background-color: #f5f5f5; /* رمادي فاتح جداً */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* بوكس اللوجين - رمادي بدون إطار وأعرض */
+.wide-short {
+  width: 100%;
+  max-width: 580px; /* العرض اللي طلبتيه */
+  padding: 40px;
+  background-color: #f5f5f5; /* نفس لون الخلفية عشان ميبقاش ليه إطار محدد */
+  border: none; /* إلغاء أي إطار */
+  text-align: center;
+}
+
+/* تنسيق العناوين */
+.wide-short h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.wide-short p {
+  color: #777;
+  margin-bottom: 35px;
+}
+
+/* مدخلات البيانات (الخط الأصفر العريض) */
+.input-group.figma-style {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 0; /* مساحة داخلية */
+  background: transparent; /* خلفية شفافة */
+  border: none;
+  border-bottom: 3px solid #FFD700; /* الخط الأصفر أعرض (3px) */
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* زرار اللوجين (أحمر بخلفية بيضاء للكتابة) */
+.login-submit-btn.pill-red {
+  width: 100%;
+  padding: 15px;
+  background-color: white; /* أحمر صريح */
+  color: #ff0000; /* أحمر صريح */
+  
+  border: none;
+  border-radius: 50px; /* شكل كبسولة */
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: 0.3s ease;
+}
+
+.login-submit-btn.pill-red:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+/* أيقونة العين */
+.eye-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+
+
+
+.remember-me-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #444;
+  user-select: none;
+}
+
+/* إخفاء التشيك بوكس الأصلي */
+.remember-me-container input {
+  display: none;
+}
+
+/* المربع نفسه */
+.checkmark-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #F8B326; /* إطار أصفر ثابت */
+  border-radius: 4px; /* زوايا مستديرة بسيطة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+/* شكل علامة الصح (مخفية في البداية) */
+.checkmark-box::after {
+  content: '';
+  width: 5px;
+  height: 10px;
+  border: solid white; /* الصح باللون الأبيض عشان تبان فوق الأصفر */
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+
+/* حالة الضغط (Checked): المربع يتملي أصفر والصح تظهر */
+.remember-me-container input:checked ~ .checkmark-box {
+  background-color: #F8B326; /* المربع يتملي أصفر */
+}
+
+.remember-me-container input:checked ~ .checkmark-box::after {
+  display: block; /* الصح البيضاء تظهر */
+}
+
+
+/* رسالة الخطأ */
+.error-message {
+  color: #F61B5A; /* لون أحمر */
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+}
+
+/* شكل الانبوت لما يكون فيه غلط */
+.input-with-icon input.input-error {
+  border-bottom: 2px solid  #F61B5A !important;
+}
+
+/* المربع بتاع الصح (عشان ميعملش Error) */
+.checkmark-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #F8B326;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
